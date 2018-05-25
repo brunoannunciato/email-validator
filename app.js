@@ -9,10 +9,10 @@ btnValidate.addEventListener('click', function() {
     boxLine.forEach(function(email){
         var reg = /(\w+)\@(\w+)\.[a-zA-Z]/g;
 
-        if(reg.test(email)) {
-            valids.value += email + '\n';
-        } else {
+        if(!reg.test(email) || email.indexOf(' ') > -1) {
             invalids.value += email + '\n';
+        } else {
+            valids.value += email + '\n';
         }
     });
 });
